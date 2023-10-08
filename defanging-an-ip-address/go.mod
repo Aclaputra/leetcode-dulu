@@ -1,3 +1,3 @@
-module defangin_ip_address
+module defanging_an_ip_address
 
 go 1.20
