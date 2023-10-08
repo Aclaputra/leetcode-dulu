@@ -2,25 +2,25 @@ package main
 
 import (
 	"fmt"
-    "strings"
+	"strings"
 )
 
 func defangIPaddr(address string) string {
-    convertedIP, err := convertIP(address)
-    if err != nil {
-        fmt.Println(err)
-    }
-	
+	convertedIP, err := convertIP(address)
+	if err != nil {
+		fmt.Println(err)
+	}
+
 	return convertedIP
 }
 
 func convertIP(address string) (string, error) {
-    var (
+	var (
 		leftBraces  = "["
 		period      = '.'
 		rightBraces = "]"
-        emptyStr = ""
-        strArr = []string{}
+		emptyStr    = ""
+		strArr      = []string{}
 	)
 
 	for _, addr := range address {
@@ -31,7 +31,7 @@ func convertIP(address string) (string, error) {
 		strArr = append(strArr, string(addr))
 	}
 
-    return strings.Join(strArr, emptyStr), nil
+	return strings.Join(strArr, emptyStr), nil
 }
 
 func main() {
