@@ -1,6 +1,10 @@
 # leetcode-dulu
 leetcode dulu nggasi (gambar brokoli)
 
+![pdf](./amazon-leetcode-interview.pdf "desc")
+
+<embed src="">
+
 - Add Two Integers 
     - status : Done
     - inputs
