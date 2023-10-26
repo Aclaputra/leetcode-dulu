@@ -12,6 +12,7 @@ import "fmt"
 	'(',')',{},() = needle
 */
 func needle_in_haystack_solve(s string) bool {
+	// haystack
 	stack := make([]rune, 0)
 	
 	for _, str := range s {
@@ -37,7 +38,8 @@ func needle_in_haystack_solve(s string) bool {
 }
 
 /*
-	needle in haystack using map
+	needle in haystack using map (sliding window)
+	removing magic literal
 */
 var closingToOpening = map[byte]byte {
     ')': '(',
