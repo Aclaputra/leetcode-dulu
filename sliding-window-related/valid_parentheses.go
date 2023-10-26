@@ -11,7 +11,7 @@ import "fmt"
 	s = haystack
 	'(',')',{},() = needle
 */
-func solve(s string) bool {
+func needle_in_haystack_solve(s string) bool {
 	stack := make([]rune, 0)
 	
 	for _, str := range s {
@@ -36,9 +36,44 @@ func solve(s string) bool {
 	return len(stack) == 0
 }
 
+/*
+	needle in haystack using map
+*/
+var closingToOpening = map[byte]byte {
+    ')': '(',
+    '}': '{',
+    ']': '[',
+}
+func map_needle_in_haystack_solve(str string) bool {
+	s := []byte(str)
+    stack := make([]byte, 0)
+
+    for _, ch := range s {
+        matchingOpening, isClosing := closingToOpening[ch]
+
+        if !isClosing { // it's opening
+            stack = append(stack, ch)
+            continue
+        }
+
+        if len(stack) == 0 { // closing, but no opening at all
+            return false
+        }
+
+        lastOpening := stack[len(stack) - 1]
+        stack = stack[:len(stack) - 1] // "remove" it
+
+        if lastOpening != matchingOpening {
+            return false
+        }
+    }
+
+    return len(stack) == 0
+}
+
 func main() {
 	input := "()[]{}"
 	input2 := "(]"
-	fmt.Println(solve(input))
-	fmt.Println(solve(input2))
+	fmt.Println(map_needle_in_haystack_solve(input))
+	fmt.Println(map_needle_in_haystack_solve(input2))
 }
