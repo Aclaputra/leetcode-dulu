@@ -2,6 +2,9 @@ package main
 
 import "fmt"
 
+/**
+	needle in haystack simplified
+*/
 func sliding_window_simplified_solve(haystack string, needle string) int {
     for a, b := 0, len(needle); b <= len(haystack); a, b = a+1, b+1 {
         if haystack[a:b] == needle {
